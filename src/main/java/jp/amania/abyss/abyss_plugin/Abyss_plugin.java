@@ -19,7 +19,7 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        if (player.getVelocity().getY() > 20) {
+        if (player.getVelocity().getY() > 15) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 200, 100));
             player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
             player.sendTitle("上昇負荷",  "軽い目眩と吐き気", 0, 20, 0);
