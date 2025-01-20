@@ -1,0 +1,4 @@
+name: abyss_plugin
+version: '1.0-SNAPSHOT'
+main: jp.amania.abyss.abyss_plugin.Abyss_plugin
+api-version: '1.21'
