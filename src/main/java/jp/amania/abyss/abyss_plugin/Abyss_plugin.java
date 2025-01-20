@@ -22,7 +22,7 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
         if (player.getVelocity().getY() > 15) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 200, 100));
             player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
-            player.sendTitle("上昇負荷",  "軽い目眩と吐き気", 0, 20, 0);
+            player.sendMessage("あなたは上昇負荷 Lv1により一時的にデバフを受けました");
         }
     }
 }
