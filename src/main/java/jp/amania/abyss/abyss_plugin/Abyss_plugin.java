@@ -63,6 +63,28 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
             player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
             player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
             player.sendMessage("あなたは上昇負荷 Lv4により一時的にデバフを受けました");
+        } else if (level > 35){
+            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.UNLUCK,200,100));
+            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
+            player.sendMessage("あなたは上昇負荷 Lv4により一時的にデバフを受けました");
+        } else if (level > 40){
+            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.UNLUCK,200,100));
+            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
+            player.damage(999);
+            player.sendMessage("あなたは上昇負荷 Lv5により一時的にデバフを受けました");
+        } else if (level > 50){
+            player.damage(99999999);
+            player.sendMessage("あなたは上昇負荷 Lv6により死亡しました");
         }
     }
 
