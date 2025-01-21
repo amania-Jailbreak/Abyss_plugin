@@ -1,7 +1,5 @@
 package jp.amania.abyss.abyss_plugin;
-
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -35,10 +33,30 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        if (player.getVelocity().getY() > 15) {
+        double level = player.getVelocity().getY();
+        if (level > 15) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 200, 100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
             player.sendMessage("あなたは上昇負荷 Lv1により一時的にデバフを受けました");
+        } else if (level > 20) {
+            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
+            player.sendMessage("あなたは上昇負荷 Lv2により一時的にデバフを受けました");
+        } else if (level > 30){
+            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
+            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
+            player.sendMessage("あなたは上昇負荷 Lv3により一時的にデバフを受けました");
+        } else if (level > 30){
+            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
+            playwe.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
+            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
+            player.sendMessage("あなたは上昇負荷 Lv4により一時的にデバフを受けました");
         }
     }
 
