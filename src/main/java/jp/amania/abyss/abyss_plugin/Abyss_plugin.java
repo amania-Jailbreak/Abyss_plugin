@@ -40,50 +40,14 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
         Player player = event.getPlayer();
         double level = player.getVelocity().getY();
         if (level > 15) {
+            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
             player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 200, 100));
-            player.sendMessage("あなたは上昇負荷 Lv1により一時的にデバフを受けました");
-        } else if (level > 20) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
-            player.sendMessage("あなたは上昇負荷 Lv2により一時的にデバフを受けました");
-        } else if (level > 30){
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
-            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
-            player.sendMessage("あなたは上昇負荷 Lv3により一時的にデバフを受けました");
-        } else if (level > 30){
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
-            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
-            player.sendMessage("あなたは上昇負荷 Lv4により一時的にデバフを受けました");
-        } else if (level > 35){
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.UNLUCK,200,100));
-            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
-            player.sendMessage("あなたは上昇負荷 Lv4により一時的にデバフを受けました");
-        } else if (level > 40){
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.UNLUCK,200,100));
-            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
-            player.damage(999);
-            player.sendMessage("あなたは上昇負荷 Lv5により一時的にデバフを受けました");
-        } else if (level > 50){
-            player.damage(99999999);
-            player.sendMessage("あなたは上昇負荷 Lv6により死亡しました");
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 200, 100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.UNLUCK, 200, 100));
+            player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 1.0f, 1.0f);
+            player.sendTitle("§c§l注意", "§c§lあなたは上昇負荷の影響を受けています", 10, 70, 20);
         }
     }
 
@@ -93,8 +57,8 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
         event.setJoinMessage(ChatColor.GREEN + player.getName() + "さんが入室しました!!");
         player.sendMessage(ChatColor.AQUA + "amania Serverへようこそ!");
         player.sendMessage(ChatColor.RED + "基本的な禁止事故(チート、荒らし、その他マナーに反する行為)　などが確認された場合それに相応する処置を取る場合があります。");
-        player.sendTitle("Welcome To amaniaServer","ようこそ！" , 0, 0, 0);
-        player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 0, 0);
+        player.sendTitle("Welcome To amaniaServer", "ようこそ！", 10, 70, 20);
+        player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
         player.getWorld().playEffect(player.getLocation(), Effect.SMOKE, 1);
         BossBar bossBar = Bukkit.createBossBar("Twitter「@amania_jp」", BarColor.BLUE, BarStyle.SOLID);
         bossBar.addPlayer(player);
@@ -107,7 +71,7 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
             @Override
             public void run() {
                 try {
-                    URL url = URI.create("https://auth.amania.jp/minecraft/notice").toURL();
+                    URL url = URI.create("https://auth.amania.jp/v1/minecraft/notice").toURL();
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("GET");
                     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -125,9 +89,9 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
                     e.printStackTrace();
                 }
             }
-        }.runTaskTimer(this, 0L, 1200L); 
+        }.runTaskTimer(this, 0L, 6000L);
     }
 
-    
+
 
 }
