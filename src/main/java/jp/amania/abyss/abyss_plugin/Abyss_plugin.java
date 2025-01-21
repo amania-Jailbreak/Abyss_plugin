@@ -2,7 +2,6 @@ package jp.amania.abyss.abyss_plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Sound;
-import org.bukkit.entity.Boss;
 import org.bukkit.entity.Player;
 import org.bukkit.boss.BossBar;
 import org.bukkit.boss.BarColor;
