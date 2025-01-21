@@ -1,5 +1,8 @@
 package jp.amania.abyss.abyss_plugin;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Effect;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +19,7 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        Bukkit.getLogger().info("¥n AbyssPlugin Loaded!!¥n--------------------------¥nAuthor:amania¥nVersion:1.1.0");
         getServer().getPluginManager().registerEvents(this, this);
     }
 
@@ -36,5 +40,6 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
         player.sendMessage(ChatColor.AQUA + "amania Serverへようこそ!");
         player.sendMessage(ChatColor.RED + "基本的な禁止事故(チート、荒らし、その他マナーに反する行為)　などが確認された場合それに相応する処置を取る場合があります。");
         player.sendTitle("Welcome To amaniaServer","ようこそ！" , 0, 0, 0);
+        player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 0, 0);
     }
 }
