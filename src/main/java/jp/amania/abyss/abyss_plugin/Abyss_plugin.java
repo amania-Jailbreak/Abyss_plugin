@@ -54,7 +54,7 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
             player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA,200,100));
             player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,200,100));
             player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,200,100));
-            playwe.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER,200,100));
             player.playSound(player, Sound.AMBIENT_BASALT_DELTAS_MOOD, 0, 0);
             player.sendMessage("あなたは上昇負荷 Lv4により一時的にデバフを受けました");
         }
