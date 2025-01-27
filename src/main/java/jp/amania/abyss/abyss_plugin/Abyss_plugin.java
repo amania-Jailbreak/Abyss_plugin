@@ -27,7 +27,6 @@ public final class Abyss_plugin extends JavaPlugin implements Listener {
     // Startup
     @Override
     public void onEnable() {
-        Bukkit.getLogger().info("¥n AbyssPlugin Loaded!!¥n--------------------------¥nAuthor:amania¥nVersion:1.1.0");
         getServer().getPluginManager().registerEvents(this, this);
         startApiCheckTask();
 
